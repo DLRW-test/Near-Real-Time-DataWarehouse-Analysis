@@ -1,0 +1,276 @@
+================================================================================
+QUICK CONVERSION GUIDE
+METRO Data Warehouse Business Documentation
+================================================================================
+
+This guide provides step-by-step instructions for converting the Markdown
+documentation to Word (.docx) and PDF formats.
+
+================================================================================
+OPTION 1: USING PANDOC (RECOMMENDED - BEST QUALITY)
+================================================================================
+
+STEP 1: Install Pandoc
+-----------------------
+Visit: https://pandoc.org/installing.html
+
+Windows: Download the installer and run it
+Mac: Use Homebrew: brew install pandoc
+Linux: sudo apt-get install pandoc
+
+STEP 2: Install LaTeX (for PDF conversion)
+-------------------------------------------
+Windows: Download MiKTeX from https://miktex.org/
+Mac: Download MacTeX from https://www.tug.org/mactex/
+Linux: sudo apt-get install texlive-full
+
+STEP 3: Convert to Word (.docx)
+--------------------------------
+Open terminal/command prompt in the document folder and run:
+
+pandoc METRO_DataWarehouse_Business_Documentation.md -o METRO_DataWarehouse_Business_Documentation.docx --toc
+
+STEP 4: Convert to PDF
+-----------------------
+pandoc METRO_DataWarehouse_Business_Documentation.md -o METRO_DataWarehouse_Business_Documentation.pdf --pdf-engine=xelatex --toc --number-sections
+
+DONE! Your documents are ready.
+
+================================================================================
+OPTION 2: USING MICROSOFT WORD (NO INSTALLATION REQUIRED)
+================================================================================
+
+STEP 1: Copy Markdown Content
+------------------------------
+1. Open METRO_DataWarehouse_Business_Documentation.md in a text editor
+2. Select All (Ctrl+A / Cmd+A)
+3. Copy (Ctrl+C / Cmd+C)
+
+STEP 2: Paste into Word
+------------------------
+1. Open Microsoft Word
+2. Create a new blank document
+3. Paste (Ctrl+V / Cmd+V)
+4. Word will automatically format the Markdown
+
+STEP 3: Format the Document
+----------------------------
+1. Select all headings and apply Word Heading styles
+   - # headings → Heading 1
+   - ## headings → Heading 2
+   - ### headings → Heading 3
+2. Insert Table of Contents:
+   - Click where TOC should go
+   - References tab → Table of Contents → Automatic Table
+3. Add page numbers:
+   - Insert tab → Page Number → Bottom of Page
+4. Format code blocks:
+   - Select code text
+   - Apply monospace font (Consolas, Courier New)
+   - Add gray background
+
+STEP 4: Insert Images
+----------------------
+1. Find each image URL in the document
+2. Download the image from the URL
+3. Insert → Pictures → place at appropriate location
+4. Add captions: References → Insert Caption
+
+STEP 5: Save as Word
+--------------------
+File → Save As → Choose .docx format
+
+STEP 6: Save as PDF
+-------------------
+File → Save As → Choose PDF format
+Options: Include bookmarks ✓
+
+DONE!
+
+================================================================================
+OPTION 3: USING ONLINE CONVERTERS (QUICKEST)
+================================================================================
+
+FOR WORD (.docx):
+-----------------
+1. Visit: https://www.markdowntoword.com/
+2. Upload: METRO_DataWarehouse_Business_Documentation.md
+3. Click "Convert"
+4. Download the .docx file
+5. Open in Word and verify formatting
+6. Make any necessary adjustments
+
+FOR PDF:
+--------
+1. First convert to Word using above method
+2. Open Word file
+3. File → Save As → PDF
+
+ALTERNATIVE PDF CONVERTER:
+--------------------------
+1. Visit: https://cloudconvert.com/md-to-pdf
+2. Upload the .md file
+3. Click "Convert"
+4. Download the PDF
+
+NOTE: Online converters may require manual formatting adjustments
+
+================================================================================
+OPTION 4: USING VISUAL STUDIO CODE (FOR DEVELOPERS)
+================================================================================
+
+STEP 1: Install VS Code
+------------------------
+Download from: https://code.visualstudio.com/
+
+STEP 2: Install Extensions
+---------------------------
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search and install:
+   - "Markdown Preview Enhanced"
+   - "Markdown PDF"
+
+STEP 3: Open Document
+----------------------
+File → Open File → Select METRO_DataWarehouse_Business_Documentation.md
+
+STEP 4: Export to PDF
+----------------------
+1. Right-click in the editor
+2. Select "Markdown PDF: Export (PDF)"
+3. Choose save location
+
+STEP 5: Export to Word (HTML intermediate)
+-------------------------------------------
+1. Right-click in editor
+2. Select "Markdown Preview Enhanced: Open Preview"
+3. Right-click in preview
+4. Select "HTML → HTML"
+5. Open HTML in Word
+6. Save As .docx
+
+================================================================================
+POST-CONVERSION CHECKLIST
+================================================================================
+
+After converting to Word/PDF, verify:
+
+ [ ] Title page displays correctly
+ [ ] Table of Contents is present and accurate
+ [ ] All 8 major sections appear
+ [ ] All 14 images/diagrams are visible
+ [ ] Code blocks are properly formatted
+ [ ] Page numbers are present
+ [ ] Heading hierarchy is correct
+ [ ] Links work (Word) / Bookmarks work (PDF)
+ [ ] Professional appearance
+ [ ] File size is reasonable
+
+================================================================================
+FORMATTING TIPS
+================================================================================
+
+IN WORD:
+
+1. Apply Consistent Fonts:
+   - Headings: Arial Bold, 14-16pt
+   - Body: Calibri, 11pt
+   - Code: Consolas, 10pt
+
+2. Adjust Spacing:
+   - Line spacing: 1.15
+   - Paragraph spacing: 6pt before/after
+
+3. Update Table of Contents:
+   - Right-click on TOC
+   - Select "Update Field"
+   - Choose "Update entire table"
+
+4. Add Headers/Footers:
+   - Insert → Header: "METRO Data Warehouse - Business Documentation"
+   - Insert → Footer: Page numbers
+
+5. Set Margins:
+   - Layout → Margins → Normal (1" all sides)
+
+IN PDF:
+
+1. Verify Bookmarks:
+   - Open navigation pane
+   - Check all section bookmarks work
+
+2. Add Metadata:
+   - File → Properties
+   - Title: "METRO Data Warehouse - Business Analysis Documentation"
+   - Author: Your name/organization
+   - Subject: "Business Analysis Report"
+
+3. Optimize File Size:
+   - File → Save As → PDF
+   - Optimize for: Standard (publishing online and printing)
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Images don't appear
+SOLUTION: Images are hosted at external URLs. Ensure internet connection
+          during conversion, or download images locally and update links.
+
+PROBLEM: Table of Contents not generated
+SOLUTION: In Pandoc, add --toc flag. In Word, insert manually from
+          References tab.
+
+PROBLEM: Code blocks lose formatting
+SOLUTION: Manually select code blocks and apply monospace font with gray
+          background.
+
+PROBLEM: Page breaks in wrong places
+SOLUTION: The document includes <div style="page-break-after: always;"></div>
+          markers. These work with some converters. Adjust manually if needed.
+
+PROBLEM: Formatting looks messy
+SOLUTION: Use Pandoc with --reference-doc option and a clean Word template.
+
+PROBLEM: PDF fonts don't look right
+SOLUTION: Use --pdf-engine=xelatex option in Pandoc for better font support.
+
+================================================================================
+RECOMMENDED WORKFLOW FOR BEST RESULTS
+================================================================================
+
+1. Convert to Word using Pandoc
+2. Open in Microsoft Word
+3. Apply corporate style template
+4. Update Table of Contents
+5. Verify all images loaded
+6. Add headers, footers, page numbers
+7. Review entire document for formatting
+8. Save as .docx
+9. Export from Word to PDF (File → Save As → PDF)
+10. Verify PDF bookmarks and navigation
+11. Add PDF metadata
+12. Final quality check
+13. Distribute to stakeholders
+
+================================================================================
+ESTIMATED TIME
+================================================================================
+
+Pandoc automatic conversion:        2-5 minutes
+Manual Word formatting:              15-30 minutes
+Quality assurance review:            10-15 minutes
+Total time for professional output:  30-50 minutes
+
+================================================================================
+SUPPORT
+================================================================================
+
+For Pandoc help: https://pandoc.org/MANUAL.html
+For Markdown syntax: https://www.markdownguide.org/
+For Word formatting: Microsoft Office support
+
+================================================================================
+END OF QUICK CONVERSION GUIDE
+================================================================================
