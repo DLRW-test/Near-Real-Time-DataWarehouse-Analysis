@@ -243,10 +243,18 @@ public class mj
         sc.close();
         
         Thread md = new Thread(new masterData()); //Starts loading MD
-        md.run();                          
+        md.start();                          
 
         Thread s = new Thread(new stream()); //Starts stream using transaction data
-        s.run();                             
+        s.start();                             
+
+        // Wait for threads to complete before processing buffers
+        try {
+            md.join();
+            s.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         while (!mj.stream.stream_buffer.isEmpty())
         {
